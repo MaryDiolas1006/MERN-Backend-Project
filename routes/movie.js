@@ -45,4 +45,36 @@ router.post('/',
 });
 
 
+// update
+router.put('/:id',
+	// passport.authenticate('jwt', {session: false}),
+	// adminOnly,
+	// upload.single('image'), 
+	(req, res, next) => {
+
+	// if(req.file){
+	// 	req.body.image = "public/" + req.file.filename
+	// }
+	Movie.findByIdAndUpdate(
+			req.params.id,
+			req.body,
+			{new: true}
+		)
+		.then(movie => res.send(movie))
+		.catch(next);
+});
+
+
+// delete
+router.delete('/:id',
+ // passport.authenticate('jwt', {session: false}),
+ (req, res, next) => {
+	Movie.findByIdAndDelete(req.params.id)
+		.then(movie => res.send({
+			movie,
+			message: "Movie is successfully deleted"
+		}))
+		.catch(next)
+});
+
 module.exports = router
