@@ -11,6 +11,7 @@ const port = process.env.PORT || 5000
 
 const movies = require('./routes/movie');
 const users = require('./routes/user');
+const transactions = require('./routes/transaction');
 
 
 
@@ -50,6 +51,8 @@ app.use('/public', express.static('assets/images'))
 
 app.use('/movies', movies);
 app.use('/users', users);
+
+app.use('/transactions', transactions);
 
 
 
