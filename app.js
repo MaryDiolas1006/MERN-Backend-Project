@@ -46,7 +46,7 @@ app.use(express.json());
 app.use(cors());
 
 // // serve a static file
-// // app.use('/public', express.static('assets/images'))
+app.use('/public', express.static('assets/images'))
 
 app.use('/movies', movies);
 app.use('/users', users);

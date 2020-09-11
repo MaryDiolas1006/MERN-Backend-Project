@@ -2,11 +2,11 @@ const router = require('express').Router()
 const User = require('./../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-// const passport = require('passport');
+const passport = require('passport');
 
-// require('./../passport-setup');
+require('./../passport-setup');
 
-
+const authenticate =  passport.authenticate('jwt', {session: false});
 
 router.post('/register', (req, res, next) => {
 	let {password, confirmPassword} = req.body
@@ -93,7 +93,7 @@ router.post('/login', (req, res, next) => {
 })
 
 router.get('/profile', 
-	// passport.authenticate('jwt', {session: false}),
+	authenticate,
 	(req, res, next) => {
 	res.send(req.user);
 })
