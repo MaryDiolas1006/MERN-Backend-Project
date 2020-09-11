@@ -12,12 +12,14 @@ const port = process.env.PORT || 5000
 const movies = require('./routes/movie');
 const users = require('./routes/user');
 const transactions = require('./routes/transaction');
+const bookings = require('./routes/booking');
+require('dotenv').config();
 
 
 
 // connect to database using mongoose
-mongoose.connect('mongodb://localhost:27017/movies', {
-// // mongoose.connect(process.env.ATLAS, {
+// mongoose.connect('mongodb://localhost:27017/movies', {
+mongoose.connect(process.env.ATLAS, {
 	useNewUrlParser: true, 
 	useCreateIndex: true,
 	useFindAndModify: false,
@@ -53,6 +55,7 @@ app.use('/movies', movies);
 app.use('/users', users);
 
 app.use('/transactions', transactions);
+app.use('/bookings', bookings);
 
 
 

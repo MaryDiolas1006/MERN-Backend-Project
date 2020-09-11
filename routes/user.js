@@ -41,7 +41,7 @@ router.post('/register', (req, res, next) => {
 router.post('/login', (req, res, next) => {
 
 	// check if fields are not empty
-	let {email, password} = req. body;
+	let {email, password} = req.body;
 
 	if(!email || !password){
 		return res.status(400).send({
