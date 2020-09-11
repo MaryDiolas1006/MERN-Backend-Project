@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const cors = require('cors');
+const cors = require('cors');
 
 // initialize the application using express
 const app = express();
@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000
 
 
 const movies = require('./routes/movie');
+const users = require('./routes/user');
 
 
 
@@ -42,12 +43,13 @@ app.use((req, res, next) => {
 // // parse incoming request body to json format
 // // this will create body attribute to request object
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 // // serve a static file
 // // app.use('/public', express.static('assets/images'))
 
 app.use('/movies', movies);
+app.use('/users', users);
 
 
 
