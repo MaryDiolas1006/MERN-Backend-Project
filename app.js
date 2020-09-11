@@ -23,6 +23,12 @@ mongoose.connect('mongodb://localhost:27017/movies', {
 });
 
 
+// check if the connection is successful
+mongoose.connection.on('connected', () => {
+	console.log('Connected to database')
+});
+
+
 // // Route Middleware
 
 // // application level middleware
