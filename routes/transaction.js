@@ -56,11 +56,21 @@ router.post('/', authenticate, (req,res,next)=>{
 
 	Movie.find({ _id : { $in: arrayOfIds} })
 	.then( movies => {
+		console.log("movie = ", movies)
 		let total = 0
 		let bookingListSummary = movies.map( movie => {
 			let matchedMovie = {};
 			req.body.bookings.forEach( booking => {
-				if (booking.movieId === movie._id) {
+				// console.log(" b id = ", typeof booking.movieId )
+				// console.log(" m id = ", typeof movie._id )
+				// console.log(" b id = ", booking.movieId )
+				// console.log(" m id = ", movie._id )
+				// let a = movie._id.toString()
+				// console.log(typeof a)
+				// console.log(a)
+
+				if (booking.movieId === movie._id.toString()) {
+					console.log("matchedID = ",booking.movieId )
 					matchedMovie = {
 						movieId: movie._id,
 						price: movie.price,
