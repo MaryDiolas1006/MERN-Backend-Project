@@ -27,7 +27,7 @@ router.get('/:id', authenticate, (req, res, next) => {
 	if(!req.user.IsAdmin){
 		filter = {
 			...filter,
-			custometId: req.user._id
+			customerId: req.user._id
 		}
 	}
 
