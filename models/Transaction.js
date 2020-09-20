@@ -34,6 +34,10 @@ const TransactionSchema = new Schema({
 				type: Number,
 				required: [true, "Subtotal required"]
 			},
+			date: {
+				type: Date,
+				required: [true, "Movie Date required"]
+			}
 		}
 	]
 },{timestamps: true})
