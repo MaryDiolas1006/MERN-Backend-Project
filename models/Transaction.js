@@ -36,7 +36,8 @@ const TransactionSchema = new Schema({
 			},
 			date: {
 				type: Date,
-				required: [true, "Movie Date required"]
+				// required: [true, "Movie Date required"]
+				default: Date.now
 			}
 		}
 	]

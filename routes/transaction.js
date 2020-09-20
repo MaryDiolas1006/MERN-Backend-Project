@@ -76,7 +76,8 @@ router.post('/', authenticate, (req,res,next)=>{
 						price: movie.price,
 						name: movie.name,
 						quantity : booking.quantity,
-						subtotal : booking.quantity * movie.price
+						subtotal : booking.quantity * movie.price,
+						date: booking.date
 					}
 					total += matchedMovie.subtotal;
 				}
