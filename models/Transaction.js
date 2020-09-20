@@ -16,6 +16,11 @@ const TransactionSchema = new Schema({
 		type: Boolean,
 		default: false
 	},
+			date: {
+				type: Date,
+				// required: [true, "Movie Date required"]
+				default: Date.now
+			},
 	bookings: [
 		{
 			movieId : {
@@ -34,11 +39,6 @@ const TransactionSchema = new Schema({
 				type: Number,
 				required: [true, "Subtotal required"]
 			},
-			date: {
-				type: Date,
-				// required: [true, "Movie Date required"]
-				default: Date.now
-			}
 		}
 	]
 },{timestamps: true})
